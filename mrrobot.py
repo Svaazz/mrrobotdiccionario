@@ -7,6 +7,8 @@ import sys
 import time
 import os
 
+comienzo = time.time()
+
 def ayuda():
 	print "\nHelp of mrrobot.py: \n\n mrrobot.py needs at least 3 parametters to work, \n if you want to exclude any of them, type '-e' instead \n\n For example: python mrrobot.py tennis * gatos \n\n-Options-\n  -e: Excludes the parametter that should be where it is\n  -h: Prints this help message\n  -n: Add it after the 3rd parametter to make mrrobot.py include numbers in the generated passwords \n\nScript by Svaazz\n"
 
@@ -79,6 +81,12 @@ class Diccionario:
 		resultado = si1 + si2 + si3
 		self.escribe(resultado)
 
+	def contar(self):
+		os.chdir("Generated")
+		archivo = open(self.nombre, 'r')
+		lectura = list(archivo)
+		os.chdir("../")
+		return len(lectura)
 
 
 
@@ -99,7 +107,12 @@ try:
 	dicc.plano()
 	dicc.inverso()
 	dicc.silabas()
-	print "Dictionary created."
+	print "\nDictionary created."
+	print "File name: " + dicc.nombre
+	fin = time.time()
+	print "Elapsed time: " + str(fin - comienzo) + " seconds."
+	print str(dicc.contar()) + " passwords generated.\n"
+
 except:
 	ayuda()
 
