@@ -13,7 +13,7 @@ python mrrobot.py (-h) palabra1 palabra2 palabra3 (-n)
 py mrrobot.py (-h) palabra1 palabra2 palabra3 (-n)
 ```
 
-## EJEMPLO:S
+## EJEMPLOS:
 ```
 python mrrobot.py tennis alex gatos
 py mrrobot.py tennis alex gatos
