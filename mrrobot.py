@@ -7,11 +7,19 @@ import sys
 import time
 import os
 
+def ayuda():
+	print "\nHelp of mrrobot.py: \n\n mrrobot.py needs at least 3 parametters to work, \n if you want to exclude any of them, type '-e' instead \n\n For example: python mrrobot.py tennis * gatos \n\n-Options-\n  -e: Excludes the parametter that should be where it is\n  -h: Prints this help message\n  -n: Add it after the 3rd parametter to make mrrobot.py include numbers in the generated passwords \n\nScript by Svaazz\n"
+
 class Diccionario:
 	
 
 	def __init__(self, pri, seg, ter, num):
+
 		self.palabra = [pri, seg, ter]
+		for x in range(3): #Comprueba si se han omitido parametros
+			if self.palabra[x] == '-e':
+				self.palabra[x] = ''
+
 		self.num = num
 		self.fecha = time.strftime("%c")
 
@@ -23,7 +31,8 @@ class Diccionario:
 
 		self.nombre = "Dictionary-" + self.fecha
 		archivo = open(self.nombre, 'a')
-		archivo.write(clave + "\n")
+		if len(clave) > 0:
+			archivo.write(clave + "\n")
 
 		if self.num == True:
 			for n in range(100):
@@ -56,12 +65,14 @@ class Diccionario:
 
 
 
+numeros = False
 
 if len(sys.argv) >= 5:
-	if sys.argv[4] == '-n':
+	if sys.argv[5] == '-n':
 		numeros = True
-else:
-	numeros = False
+elif len(sys.argv) == 2:
+	if sys.argv[1] == '-h':
+		ayuda()
 
 try:
 	dicc = Diccionario(sys.argv[1], sys.argv[2], sys.argv[3], numeros)
@@ -71,12 +82,6 @@ try:
 	dicc.silabas()
 	print "Dictionary created."
 except:
-	print "3 parameters are needed."
+	ayuda()
 
 exit()
-
-
-
-
-
-
