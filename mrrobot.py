@@ -23,6 +23,16 @@ class Diccionario:
 		self.num = num
 		self.fecha = time.strftime("%c")
 
+	def pumayus(self, clave):
+		return clave.title()[:-1] + clave[-1].upper()
+	def umayus(self, clave):
+		return clave[:-1] + clave[-1].upper()
+	def pmayus(self, clave):
+		return clave.title()
+	def mayus(self, clave):
+		return clave.upper()
+
+
 	#Escribir en el txt
 	def escribe(self, clave):
 		if os.path.exists("Generated") == False: # Crea la carpeta en caso de que no exista
@@ -33,10 +43,18 @@ class Diccionario:
 		archivo = open(self.nombre, 'a')
 		if len(clave) > 0:
 			archivo.write(clave + "\n")
+			archivo.write(self.mayus(clave) + "\n")
+			archivo.write(self.pmayus(clave) + "\n")
+			archivo.write(self.umayus(clave) + "\n")
+			archivo.write(self.pumayus(clave) + "\n")
 
-		if self.num == True:
-			for n in range(100):
-				archivo.write(clave + str(n) + "\n")
+			if self.num == True:
+				for n in range(100):
+					archivo.write(clave + str(n) + "\n")
+					archivo.write(self.mayus(clave) + str(n) + "\n")
+					archivo.write(self.pmayus(clave) + str(n) + "\n")
+					archivo.write(self.umayus(clave) + str(n) + "\n")
+					archivo.write(self.pumayus(clave) + str(n) + "\n")
 
 		archivo.close()
 		os.chdir("../")
@@ -65,10 +83,11 @@ class Diccionario:
 
 
 
+
 numeros = False
 
 if len(sys.argv) >= 5:
-	if sys.argv[5] == '-n':
+	if sys.argv[4] == '-n':
 		numeros = True
 elif len(sys.argv) == 2:
 	if sys.argv[1] == '-h':
