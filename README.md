@@ -7,6 +7,7 @@ La forma correcta de utilizarlo (En **Linux**) es:
 **python mrrobot.py palabra1 palabra2 palabra3 (-n)**
 
 En **Windows** debería funcionar con:
+
 **py mrrobot.py palabra1 palabra2 palabra3 (-n)**
 
 EJEMPLO:
