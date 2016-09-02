@@ -6,17 +6,20 @@ Genera **3030 contraseñas** con la opción -n habilitada y 30 contraseñas con 
 
 ## La forma correcta de utilizarlo (En **Linux**) es:
 ```
-python mrrobot.py palabra1 palabra2 palabra3 (-n)
+python mrrobot.py (-h) palabra1 palabra2 palabra3 (-n)
 ```
 ## En **Windows** debería funcionar con:
 ```
-py mrrobot.py palabra1 palabra2 palabra3 (-n)
+py mrrobot.py (-h) palabra1 palabra2 palabra3 (-n)
 ```
 
 ## EJEMPLO:
 ```
 python mrrobot.py tennis alex gatos
 py mrrobot.py tennis alex gatos
+
+python mrrobot.py -h
+py mrrobot.py -h
 ```
 
 Necesita 3 palabras que se encargará de enlazar de diversas formas para crear el diccionario. El atributo -n es opcional y sirve para añadir números a las combinaciones ya que típicamente las contraseñas los tienen (clavesecreta99)
