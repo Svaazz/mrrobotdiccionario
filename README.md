@@ -13,7 +13,7 @@ En **Windows** debería funcionar con:
 EJEMPLO:
 python mrrobot.py tennis alex cats
 
-Necesita 3 palabras que se encargará de enlazar de diversas formas para formar el diccionario. El atributo -n es opcional y sirve para añadir numeros a las combinaciones ya que típicamente las contraseñas los tienen (clavesecreta99)
+Necesita 3 palabras que se encargará de enlazar de diversas formas para crear el diccionario. El atributo -n es opcional y sirve para añadir numeros a las combinaciones ya que típicamente las contraseñas los tienen (clavesecreta99)
 
 Los diccionarios son archivos .txt y se guardan en la carpeta "Generated".
 Esta no es la versión final del script.
