@@ -11,4 +11,8 @@ Necesita 3 palabras que se encargará de enlazar de diversas formas para formar 
 Los diccionarios son archivos .txt y se guardan en la carpeta "Generated".
 Esta no es la versión final del script.
 
-- Svaazz (c)
+Próximas implementaciones:
+  - Más métodos de mezcla para las contraseñas
+  - Una pequeña ayuda con instrucciones al escribir -h
+
+### Svaazz (c)
