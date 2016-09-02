@@ -19,6 +19,14 @@ py mrrobot.py tennis alex gatos
 
 Necesita 3 palabras que se encargará de enlazar de diversas formas para crear el diccionario. El atributo -n es opcional y sirve para añadir números a las combinaciones ya que típicamente las contraseñas los tienen (clavesecreta99)
 
+## Opciones
+```
+-e: Se utiliza en lugar de alguno de los tres parámetros necesarios para excluirlo.
+-h: Imprime la ayuda
+-n: Incluye numeros en las combinaciones
+
+```
+
 Los diccionarios son archivos .txt y se guardan en la carpeta "Generated".
 Esta no es la versión final del script.
 
