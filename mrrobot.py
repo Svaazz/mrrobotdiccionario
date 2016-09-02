@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+#By Svaazz
+
 import sys
 import time
 import os
