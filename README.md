@@ -13,13 +13,16 @@ python mrrobot.py (-h) palabra1 palabra2 palabra3 (-n)
 py mrrobot.py (-h) palabra1 palabra2 palabra3 (-n)
 ```
 
-## EJEMPLO:
+## EJEMPLO:S
 ```
 python mrrobot.py tennis alex gatos
 py mrrobot.py tennis alex gatos
 
 python mrrobot.py -h
 py mrrobot.py -h
+
+python tennis -e gatos
+py tennis -e gatos
 ```
 
 Necesita 3 palabras que se encargará de enlazar de diversas formas para crear el diccionario. El atributo -n es opcional y sirve para añadir números a las combinaciones ya que típicamente las contraseñas los tienen (clavesecreta99)
