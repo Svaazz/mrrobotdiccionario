@@ -2,7 +2,8 @@
 
 Script para generar diccionarios de contraseñas basado en el utilizado por Elliot en el capítulo 1 de la primera temporada entre el minuto 0:52 y el 0:53
 
-Genera **3030 contraseñas** con la opción -n habilitada y 30 contraseñas con -n deshabilitada
+Genera **3030 contraseñas** con la opción -n habilitada y 30 contraseñas con -n deshabilitada.
+Tarda una media de 0'003789306 segundos en generar el diccionario (con -n habilitado)
 
 ## La forma correcta de utilizarlo (En **Linux**) es:
 ```
