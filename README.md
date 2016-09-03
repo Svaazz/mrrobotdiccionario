@@ -2,17 +2,20 @@
 
 Script para generar diccionarios de contraseñas basado en el utilizado por Elliot en el capítulo 1 de la primera temporada entre el minuto 0:52 y el 0:53
 
-Genera **3030 contraseñas** con la opción -n habilitada y 30 contraseñas con -n deshabilitada.
+Genera **1852035 contraseñas** con las opciones -a y -n habilitadas y 75 contraseñas con estas opciones deshabilitadas.
 
-Tarda una media de **0'003789306 segundos** en generar el diccionario (con -n habilitado)
+Tarda una media de **0'09489306 segundos** en generar el diccionario (con -n y -a habilitados)
 
 ## La forma correcta de utilizarlo (En **Linux**) es:
 ```
-python mrrobot.py (-h) palabra1 palabra2 palabra3 (-n)
+python mrrobot.py (-h) palabra1 palabra2 palabra3 (-n) (-a) (y/and/et/...)
 ```
+
+El orden de los parámetros -n y -a no importa
+
 ## En **Windows** debería funcionar con:
 ```
-py mrrobot.py (-h) palabra1 palabra2 palabra3 (-n)
+py mrrobot.py (-h) palabra1 palabra2 palabra3 (-n) (-a) (y/and/et/...)
 ```
 
 ## EJEMPLOS:
@@ -27,13 +30,14 @@ python tennis -e gatos
 py tennis -e gatos
 ```
 
-Necesita 3 palabras que se encargará de enlazar de diversas formas para crear el diccionario. El atributo -n es opcional y sirve para añadir números a las combinaciones ya que típicamente las contraseñas los tienen (clavesecreta99)
+Necesita 3 palabras que se encargará de enlazar de diversas formas para crear el diccionario. Los atributos -n y -a son opcionales y sirven para añadir números a las combinaciones (clavesecreta99, clavesecreta6969, clavesecreta777...) y para añadir conjunciones (perrosygatos, dogsandcats, chiensetchats...)
 
 ## Opciones
 ```
 -e: Se utiliza en lugar de alguno de los tres parámetros necesarios para excluirlo.
 -h: Imprime la ayuda
 -n: Incluye numeros en las combinaciones
+-a: Añade conjunciones a las claves generadas, tiene que estar seguido de una.
 
 ```
 
