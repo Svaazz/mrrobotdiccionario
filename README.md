@@ -28,6 +28,10 @@ py mrrobot.py -h
 
 python tennis -e gatos
 py tennis -e gatos
+
+python mrrobot.py tennis alex gatos -n -a y
+py mrrobot.py tennis alex gatos -n -a y
+
 ```
 
 Necesita 3 palabras que se encargará de enlazar de diversas formas para crear el diccionario. Los atributos -n y -a son opcionales y sirven para añadir números a las combinaciones (clavesecreta99, clavesecreta6969, clavesecreta777...) y para añadir conjunciones (perrosygatos, dogsandcats, chiensetchats...)
