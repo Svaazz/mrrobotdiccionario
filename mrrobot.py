@@ -34,6 +34,16 @@ class Diccionario:
 		return clave.title()
 	def mayus(self, clave):
 		return clave.upper()
+	def vocales(self, clave):
+		resultado = clave.replace('a', '4')
+		resultado = resultado.replace('A', '4')
+		resultado = resultado.replace('e', '3')
+		resultado = resultado.replace('E', '4')
+		resultado = resultado.replace('o', '0')
+		resultado = resultado.replace('O', '0')
+
+		return resultado
+
 
 
 	#Escribir en el txt
@@ -51,6 +61,12 @@ class Diccionario:
 			archivo.write(self.umayus(clave) + "\n")
 			archivo.write(self.pumayus(clave) + "\n")
 
+			archivo.write(self.vocales(clave) + "\n")
+			archivo.write(self.mayus(self.vocales(clave)) + "\n")
+			archivo.write(self.pmayus(self.vocales(clave)) + "\n")
+			archivo.write(self.umayus(self.vocales(clave)) + "\n")
+			archivo.write(self.pumayus(self.vocales(clave)) + "\n")
+
 			if self.num == True:
 				for n in range(10000):
 					if n < 10:
@@ -60,11 +76,25 @@ class Diccionario:
 						archivo.write(self.umayus(clave) + '0' + str(n) + "\n")
 						archivo.write(self.pumayus(clave) + '0' + str(n) + "\n")
 
+						#Repite, con numeros sustituyendo a vocales
+						archivo.write(self.vocales(clave) + '0' + str(n) + "\n")
+						archivo.write(self.mayus(self.vocales(clave)) + '0' + str(n) + "\n")
+						archivo.write(self.pmayus(self.vocales(clave)) + '0' + str(n) + "\n")
+						archivo.write(self.umayus(self.vocales(clave)) + '0' + str(n) + "\n")
+						archivo.write(self.pumayus(self.vocales(clave)) + '0' + str(n) + "\n")
+
 					archivo.write(clave + str(n) + "\n")
 					archivo.write(self.mayus(clave) + str(n) + "\n")
 					archivo.write(self.pmayus(clave) + str(n) + "\n")
 					archivo.write(self.umayus(clave) + str(n) + "\n")
 					archivo.write(self.pumayus(clave) + str(n) + "\n")
+
+					#Repite, con numeros sustituyendo a vocales
+					archivo.write(self.vocales(clave) + str(n) + "\n")
+					archivo.write(self.mayus(self.vocales(clave)) + str(n) + "\n")
+					archivo.write(self.pmayus(self.vocales(clave)) + str(n) + "\n")
+					archivo.write(self.umayus(self.vocales(clave)) + str(n) + "\n")
+					archivo.write(self.pumayus(self.vocales(clave)) + str(n) + "\n")
 
 		archivo.close()
 		os.chdir("../")
@@ -123,7 +153,6 @@ class Diccionario:
 				mezcla = self.palabra[i] + self.conj + self.palabra[i+1]
 				self.escribe(mezcla)
 			
-
 	def juntar(self):
 		n = 0
 		while n <= 2:
