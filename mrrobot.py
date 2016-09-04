@@ -198,6 +198,8 @@ elif len(sys.argv) == 2:
 	if sys.argv[1] == '-h':
 		ayuda()
 
+
+
 try:
 	dicc = Diccionario(sys.argv[1], sys.argv[2], sys.argv[3], numeros, conjun, time.strftime("%c"))
 	dicc.simple()
@@ -211,7 +213,7 @@ try:
 	fin = time.time() #Toma la hora al finalizar la ejecución
 	print "Elapsed time: " + str(fin - comienzo) + " seconds." #Resta las dos horas tomadas y obtiene el tiempo que ha tardado en generar el diccionario
 	print str(dicc.contar()) + " passwords generated.\n"
-except:
+except Exception:
 	ayuda()
 
 exit()
