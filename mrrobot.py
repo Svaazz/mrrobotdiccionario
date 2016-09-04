@@ -15,7 +15,7 @@ def ayuda():
 class Diccionario:
 	
 
-	def __init__(self, pri, seg, ter, num, conjun):
+	def __init__(self, pri, seg, ter, num, conjun, fecha):
 
 		self.palabra = [pri, seg, ter]
 		for x in range(3): #Comprueba si se han omitido parametros
@@ -23,8 +23,14 @@ class Diccionario:
 				self.palabra[x] = ''
 
 		self.num = num
-		self.fecha = time.strftime("%c")
+		self.fecha = fecha
 		self.conj = conjun
+		if os.path.exists("Generated") == False: # Crea la carpeta en caso de que no exista
+			os.mkdir("Generated")
+		os.chdir("Generated") #Se va al directorio Generated
+
+		self.nombre = "Dictionary-" + self.fecha
+		self.archivo = open(self.nombre, 'a')
 
 	def pumayus(self, clave):
 		return clave.title()[:-1] + clave[-1].upper()
@@ -45,15 +51,12 @@ class Diccionario:
 		return resultado
 
 
+	def getArchivo(self):
+		return self.archivo
 
 	#Escribir en el txt
 	def escribe(self, clave):
-		if os.path.exists("Generated") == False: # Crea la carpeta en caso de que no exista
-			os.mkdir("Generated")
-		os.chdir("Generated") #Se va al directorio Generated
-
-		self.nombre = "Dictionary-" + self.fecha
-		archivo = open(self.nombre, 'a')
+		archivo = self.archivo
 		if len(clave) > 0:
 			archivo.write(clave + "\n")
 			archivo.write(self.mayus(clave) + "\n")
@@ -97,8 +100,6 @@ class Diccionario:
 					archivo.write(self.umayus(self.vocales(clave)) + str(n) + "\n")
 					archivo.write(self.pumayus(self.vocales(clave)) + str(n) + "\n")
 
-		archivo.close()
-		os.chdir("../")
 
 	def simple(self):
 		for i in range(3):
@@ -162,11 +163,10 @@ class Diccionario:
 			n += 1
 	#Cuenta cuantas lineas tiene el archivo para ver cuantas contraseñas se han generado
 	def contar(self):
-		os.chdir("Generated")
+		self.archivo.close()
 		archivo = open(self.nombre, 'r')
-		lectura = list(archivo)
-		os.chdir("../")
-		return len(lectura)
+		lineas = list(archivo)
+		return len(lineas)
 
 
 
@@ -190,20 +190,20 @@ elif len(sys.argv) == 2:
 		ayuda()
 
 
-try:
-	dicc = Diccionario(sys.argv[1], sys.argv[2], sys.argv[3], numeros, conjun)
-	dicc.simple()
-	dicc.plano()
-	dicc.inverso()
-	dicc.silabas()
-	dicc.conjuncion()
-	dicc.juntar()
-	print "\nDictionary created."
-	print "File name: " + dicc.nombre
-	fin = time.time() #Toma la hora al finalizar la ejecución
-	print "Elapsed time: " + str(fin - comienzo) + " seconds." #Resta las dos horas tomadas y obtiene el tiempo que ha tardado en generar el diccionario
-	print str(dicc.contar()) + " passwords generated.\n"
-except:
-	ayuda()
+
+dicc = Diccionario(sys.argv[1], sys.argv[2], sys.argv[3], numeros, conjun, time.strftime("%c"))
+dicc.simple()
+dicc.plano()
+dicc.inverso()
+dicc.silabas()
+dicc.conjuncion()
+dicc.juntar()
+print "\nDictionary created."
+print "File name: " + dicc.nombre
+fin = time.time() #Toma la hora al finalizar la ejecución
+print "Elapsed time: " + str(fin - comienzo) + " seconds." #Resta las dos horas tomadas y obtiene el tiempo que ha tardado en generar el diccionario
+print str(dicc.contar()) + " passwords generated.\n"
+
+	#ayuda()
 
 exit()
