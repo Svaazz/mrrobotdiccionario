@@ -21,6 +21,12 @@ class Diccionario:
 		for x in range(3): #Comprueba si se han omitido parametros
 			if self.palabra[x] == '-e':
 				self.palabra[x] = ''
+			if len(self.palabra[x]) <= 1:
+				print "\nParametters have to measure 2 characters as minimum! \nType 'python mrrobot.py -h' for help\n"
+				exit()
+		if self.palabra[0] == self.palabra[1] or self.palabra[0] == self.palabra[2] or self.palabra[1] == self.palabra[2]:
+			print "\nYou cannot use the same word twice! \nType 'python mrrobot.py -h' for help\n"
+			exit()
 
 		self.num = num
 		self.fecha = fecha
@@ -74,11 +80,12 @@ class Diccionario:
 			if self.num == True:
 				for n in range(10000):
 					if n < 10: # Añade un 0 delante del numero mientras que sea de una sola cifra
+						n = '0' + str(n)
 						archivo.write(clave + '0' + str(n) + "\n")
-						archivo.write(self.mayus(clave) + '0' + str(n) + "\n")
-						archivo.write(self.pmayus(clave) + '0' + str(n) + "\n")
-						archivo.write(self.umayus(clave) + '0' + str(n) + "\n")
-						archivo.write(self.pumayus(clave) + '0' + str(n) + "\n")
+						archivo.write(self.mayus(clave) + n + "\n")
+						archivo.write(self.pmayus(clave) + n + "\n")
+						archivo.write(self.umayus(clave) + n + "\n")
+						archivo.write(self.pumayus(clave) + n + "\n")
 
 						#Repite, con numeros sustituyendo a vocales
 						archivo.write(self.vocales(clave) + '0' + str(n) + "\n")
