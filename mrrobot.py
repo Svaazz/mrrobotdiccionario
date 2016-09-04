@@ -125,34 +125,33 @@ class Diccionario:
 			for i in range(0, 3): #Intento abarcar la mayoría de posibilidades con 3 palabras
 				mezcla = self.palabra[i] + self.conj + self.palabra[i] + self.conj + self.palabra[i]
 				self.escribe(mezcla)
-			for i in range(0, 2):
-				mezcla = self.palabra[i] + self.conj + self.palabra[i+1] + self.conj + self.palabra[i+1]
-				self.escribe(mezcla)
-			for i in range(0, 2):
-				mezcla = self.palabra[i+1] + self.conj + self.palabra[i] + self.conj + self.palabra[i+1]
-				self.escribe(mezcla)
-			for i in range(0, 2):
-				mezcla = self.palabra[i+1] + self.conj + self.palabra[i] + self.conj + self.palabra[i]
-				self.escribe(mezcla)
-			for i in range(0, 2):
-				mezcla = self.palabra[i] + self.conj + self.palabra[i] + self.conj + self.palabra[i+1]
-				self.escribe(mezcla)
-			for i in range(0, 2):
-				mezcla = self.palabra[i] + self.conj + self.palabra[i+1] + self.conj + self.palabra[i]
-				self.escribe(mezcla)
-			for i in range(0, 2):
-				mezcla = self.palabra[i+1] + self.conj + self.palabra[i+1] + self.conj + self.palabra[i]
-				self.escribe(mezcla)
-			
-			for i in range(0, 3): #Intento abarcar la mayoría de posibilidades con 2 palabras
 				mezcla = self.palabra[i] + self.conj + self.palabra[i]
 				self.escribe(mezcla)
 			for i in range(0, 2):
-				mezcla = self.palabra[i+1] + self.conj + self.palabra[i]
+				mezcla = self.palabra[i] + self.conj + self.palabra[i+1] + self.conj + self.palabra[i+1]
 				self.escribe(mezcla)
-			for i in range(0, 2):
+
+				mezcla = self.palabra[i+1] + self.conj + self.palabra[i] + self.conj + self.palabra[i+1]
+				self.escribe(mezcla)
+
+				mezcla = self.palabra[i+1] + self.conj + self.palabra[i] + self.conj + self.palabra[i]
+				self.escribe(mezcla)
+
+				mezcla = self.palabra[i] + self.conj + self.palabra[i] + self.conj + self.palabra[i+1]
+				self.escribe(mezcla)
+
+				mezcla = self.palabra[i] + self.conj + self.palabra[i+1] + self.conj + self.palabra[i]
+				self.escribe(mezcla)
+
+				mezcla = self.palabra[i+1] + self.conj + self.palabra[i+1] + self.conj + self.palabra[i]
+				self.escribe(mezcla)
+
 				mezcla = self.palabra[i] + self.conj + self.palabra[i+1]
 				self.escribe(mezcla)
+
+				mezcla = self.palabra[i+1] + self.conj + self.palabra[i]
+				self.escribe(mezcla)
+
 	#Junta cada palabra con las dos otras y ella misma		
 	def juntar(self):
 		n = 0
