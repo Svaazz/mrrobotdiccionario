@@ -18,11 +18,11 @@ class Diccionario:
 	def __init__(self, pri, seg, ter, num, conjun, fecha):
 
 		self.palabra = [pri, seg, ter]
-		
-		if len(self.palabra[x]) <= 1:
-			print "\nParametters have to measure 2 characters as minimum! \nType 'python mrrobot.py -h' for help\n"
-			exit()
+
 		for x in range(3): #Comprueba si se han omitido parametros
+			if len(self.palabra[x]) <= 1:
+				print "\nParametters have to measure 2 characters as minimum! \nType 'python mrrobot.py -h' for help\n"
+				exit()
 			if self.palabra[x] == '-e':
 				self.palabra[x] = ''
 
@@ -197,7 +197,6 @@ if len(sys.argv) >= 5:
 elif len(sys.argv) == 2:
 	if sys.argv[1] == '-h':
 		ayuda()
-
 
 try:
 	dicc = Diccionario(sys.argv[1], sys.argv[2], sys.argv[3], numeros, conjun, time.strftime("%c"))
