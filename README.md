@@ -1,6 +1,6 @@
 # Generador de diccionarios
 
-Script para generar diccionarios de contraseñas basado en el utilizado por Elliot en el capítulo 1 de la primera temporada entre el minuto 0:52 y el 0:53
+Script para generar diccionarios de contraseñas basado en el utilizado por Elliot en el capítulo 1 de la primera temporada de Mr Robot entre el minuto 0:52 y el 0:53
 
 Genera **3704070 contraseñas** con las opciones -a y -n habilitadas y 150 contraseñas con estas opciones deshabilitadas.
 
