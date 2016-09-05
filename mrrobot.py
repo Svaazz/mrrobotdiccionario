@@ -218,18 +218,18 @@ try:
 	dicc = Diccionario(sys.argv[1], sys.argv[2], sys.argv[3], numeros, conjun, time.strftime("%c"))
 	print "Generating dictionary..."
 	dicc.simple()
-	print " 16 % "
+	print "[ 16 % ]"
 	dicc.plano()
-	print " 32 % "
+	print "[ 32 % ]"
 	dicc.inverso()
-	print " 48 % "
+	print "[ 48 % ]"
 	dicc.silabas()
-	print " 64 % "
+	print "[ 64 % ]"
 	dicc.conjuncion()
-	print " 80 % "
+	print "[ 80 % ]"
 	dicc.juntar()
-	print " 96 % "	
-	print "\n\nDictionary created."
+	print "[ 96 % ]"	
+	print "\n\n\aDictionary created."
 	print "File name: " + dicc.nombre
 	fin = time.time() #Toma la hora al finalizar la ejecución
 	print "Elapsed time: " + str(fin - comienzo) + " seconds." #Resta las dos horas tomadas y obtiene el tiempo que ha tardado en generar el diccionario
