@@ -4,7 +4,7 @@ Script para generar diccionarios de contraseñas basado en el utilizado por Elli
 
 Genera **7.408.140 contraseñas** con las opciones -a y -n habilitadas y 150 contraseñas con estas opciones deshabilitadas.
 
-Tarda una media de **7.86118897 segundos** en generar el diccionario (con -n y -a habilitados)
+Tarda una media de **7'86118897 segundos** en generar el diccionario (con -n y -a habilitados)
 
 ## La forma correcta de utilizarlo (En **Linux**) es:
 ```
