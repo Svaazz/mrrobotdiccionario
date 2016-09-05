@@ -66,48 +66,61 @@ class Diccionario:
 	def escribe(self, clave):
 		archivo = self.archivo
 		if len(clave) > 0:
-			archivo.write(clave + "\n")
-			archivo.write(self.mayus(clave) + "\n")
-			archivo.write(self.pmayus(clave) + "\n")
-			archivo.write(self.umayus(clave) + "\n")
-			archivo.write(self.pumayus(clave) + "\n")
-			
-			#Repite, con numeros sustituyendo a vocales
-			archivo.write(self.vocales(clave) + "\n")
-			archivo.write(self.mayus(self.vocales(clave)) + "\n")
-			archivo.write(self.pmayus(self.vocales(clave)) + "\n")
-			archivo.write(self.umayus(self.vocales(clave)) + "\n")
-			archivo.write(self.pumayus(self.vocales(clave)) + "\n")
+			claveNumerica = self.vocales(clave)
+			for j in range(2):
+				archivo.write(clave + "\n")
+				archivo.write(self.mayus(clave) + "\n")
+				archivo.write(self.pmayus(clave) + "\n")
+				archivo.write(self.umayus(clave) + "\n")
+				archivo.write(self.pumayus(clave) + "\n")
+
+
+				#Repite, con numeros sustituyendo a vocales
+				archivo.write(claveNumerica + "\n")
+				archivo.write(self.mayus(claveNumerica) + "\n")
+				archivo.write(self.pmayus(claveNumerica) + "\n")
+				archivo.write(self.umayus(claveNumerica) + "\n")
+				archivo.write(self.pumayus(claveNumerica) + "\n")
+				
+				clave = clave + "A"
+				claveNumerica = claveNumerica + "A"
+			clave = clave[:-1]
+			claveNumerica = claveNumerica[:-1]
 
 			if self.num == True:
 				for n in range(10000):
 					if n < 10: # Añade un 0 delante del numero mientras que sea de una sola cifra
 						n = '0' + str(n)
-						archivo.write(clave + '0' + str(n) + "\n")
-						archivo.write(self.mayus(clave) + n + "\n")
-						archivo.write(self.pmayus(clave) + n + "\n")
-						archivo.write(self.umayus(clave) + n + "\n")
-						archivo.write(self.pumayus(clave) + n + "\n")
+						for j in range(2):
+							archivo.write(clave + n + "\n")
+							archivo.write(self.mayus(clave) + n + "\n")
+							archivo.write(self.pmayus(clave) + n + "\n")
+							archivo.write(self.umayus(clave) + n + "\n")
+							archivo.write(self.pumayus(clave) + n + "\n")
+
+							#Repite, con numeros sustituyendo a vocales
+							archivo.write(self.vocales(clave) + n + "\n")
+							archivo.write(self.mayus(self.vocales(clave)) + n + "\n")
+							archivo.write(self.pmayus(self.vocales(clave)) + n + "\n")
+							archivo.write(self.umayus(self.vocales(clave)) + n + "\n")
+							archivo.write(self.pumayus(self.vocales(clave)) + n + "\n")
+							n = str(n) + "A"
+						n = n[:-1]
+					for j in range(2):
+						archivo.write(clave + str(n) + "\n") # De todas formas se escribe tambien el numero sin el cero delante para abarcar mas posibilidades
+						archivo.write(self.mayus(clave) + str(n) + "\n")
+						archivo.write(self.pmayus(clave) + str(n) + "\n")
+						archivo.write(self.umayus(clave) + str(n) + "\n")
+						archivo.write(self.pumayus(clave) + str(n) + "\n")
 
 						#Repite, con numeros sustituyendo a vocales
-						archivo.write(self.vocales(clave) + '0' + str(n) + "\n")
-						archivo.write(self.mayus(self.vocales(clave)) + '0' + str(n) + "\n")
-						archivo.write(self.pmayus(self.vocales(clave)) + '0' + str(n) + "\n")
-						archivo.write(self.umayus(self.vocales(clave)) + '0' + str(n) + "\n")
-						archivo.write(self.pumayus(self.vocales(clave)) + '0' + str(n) + "\n")
-
-					archivo.write(clave + str(n) + "\n") # De todas formas se escribe tambien el numero sin el cero delante para abarcar mas posibilidades
-					archivo.write(self.mayus(clave) + str(n) + "\n")
-					archivo.write(self.pmayus(clave) + str(n) + "\n")
-					archivo.write(self.umayus(clave) + str(n) + "\n")
-					archivo.write(self.pumayus(clave) + str(n) + "\n")
-
-					#Repite, con numeros sustituyendo a vocales
-					archivo.write(self.vocales(clave) + str(n) + "\n")
-					archivo.write(self.mayus(self.vocales(clave)) + str(n) + "\n")
-					archivo.write(self.pmayus(self.vocales(clave)) + str(n) + "\n")
-					archivo.write(self.umayus(self.vocales(clave)) + str(n) + "\n")
-					archivo.write(self.pumayus(self.vocales(clave)) + str(n) + "\n")
+						archivo.write(self.vocales(clave) + str(n) + "\n")
+						archivo.write(self.mayus(self.vocales(clave)) + str(n) + "\n")
+						archivo.write(self.pmayus(self.vocales(clave)) + str(n) + "\n")
+						archivo.write(self.umayus(self.vocales(clave)) + str(n) + "\n")
+						archivo.write(self.pumayus(self.vocales(clave)) + str(n) + "\n")
+						n = str(n) + "A"
+					n = n[:-1]
 
 
 	def simple(self):
@@ -170,6 +183,7 @@ class Diccionario:
 				resultado = self.palabra[n] + self.palabra[i]
 				self.escribe(resultado)
 			n += 1
+
 	#Cuenta cuantas lineas tiene el archivo para ver cuantas contraseñas se han generado
 	def contar(self):
 		self.archivo.close()
@@ -202,18 +216,25 @@ elif len(sys.argv) == 2:
 
 try:
 	dicc = Diccionario(sys.argv[1], sys.argv[2], sys.argv[3], numeros, conjun, time.strftime("%c"))
+	print "Generating dictionary..."
 	dicc.simple()
+	print " 16 % "
 	dicc.plano()
+	print " 32 % "
 	dicc.inverso()
+	print " 48 % "
 	dicc.silabas()
+	print " 64 % "
 	dicc.conjuncion()
+	print " 80 % "
 	dicc.juntar()
-	print "\nDictionary created."
+	print " 96 % "	
+	print "\n\nDictionary created."
 	print "File name: " + dicc.nombre
 	fin = time.time() #Toma la hora al finalizar la ejecución
 	print "Elapsed time: " + str(fin - comienzo) + " seconds." #Resta las dos horas tomadas y obtiene el tiempo que ha tardado en generar el diccionario
-	print str(dicc.contar()) + " passwords generated.\n"
-except Exception:
+	print str(dicc.contar()) + " passwords generated.\n\n"
+except:
 	ayuda()
 
 exit()
