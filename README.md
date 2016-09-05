@@ -3,8 +3,10 @@
 Script para generar diccionarios de contraseñas basado en el utilizado por Elliot en el capítulo 1 de la primera temporada de Mr Robot entre el minuto 0:52 y el 0:53
 
 Genera **7.408.140 contraseñas** con las opciones -a y -n habilitadas y 300 contraseñas con estas opciones deshabilitadas.
-Un diccionario de 7.408.140 contraseñas utilizando palabras de 4 letras de longitud y una conjunción de 3 letras pesa **146'8 MB**
 Tarda una media de **7'86118897 segundos** en generar el diccionario (con -n y -a habilitados)
+
+Un diccionario de 7.408.140 contraseñas utilizando palabras de 4 letras de longitud y una conjunción de 3 letras pesa **146'8 MB**
+
 
 ## La forma correcta de utilizarlo (En **Linux**) es:
 ```
