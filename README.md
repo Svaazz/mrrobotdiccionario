@@ -35,7 +35,7 @@ python mrrobot.py tennis alex gatos -n -a y
 py mrrobot.py tennis alex gatos -n -a y
 ```
 
-Necesita 3 palabras que se encargará de enlazar de diversas formas para crear el diccionario. No puede haber dos palabras iguales, y su longitud tiene que ser superior a 2 caracteres.
+Necesita 3 palabras que se encargará de enlazar automágicamente de diversas formas para crear el diccionario. No puede haber dos palabras iguales, y su longitud tiene que ser superior a 2 caracteres.
 Los atributos -n y -a son opcionales y sirven para añadir números a las combinaciones (clavesecreta99, clavesecreta6969, clavesecreta777...) y para añadir conjunciones (perrosygatos, dogsandcats, chiensetchats...), respectivamente.
 
 ## Opciones
