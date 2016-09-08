@@ -10,7 +10,7 @@ import os
 comienzo = time.time() #Esto guarda la hora al comenzar la ejecución
 
 def ayuda():
-	print "\nHelp of mrrobot.py: \n\n mrrobot.py needs at least 3 parametters to work, \n if you want to exclude any of them, type '-e' instead \n\n For example: python mrrobot.py tennis -e gatos \n\n-Options-\n  -e: Excludes the parametter that should be where it is\n  -h: Prints this help message\n  -n: Add it after the 3rd parametter to make mrrobot.py include numbers in the generated passwords\n  -a: Used to add a conjunction in your language and use it in the passwords.\n      Must be followed by the conjunction (python mrrobot.py tennis alex gatos -a and) \n\nScript by Svaazz\n"
+	print "\nHelp of mrrobot.py: \n\n mrrobot.py needs at least 3 parametters to work, \n if you want to exclude any of them, type '-e' instead \n\n For example: python mrrobot.py tennis -e gatos \n\n-Options-\n  -a: Used to add a conjunction in your language and use it in the passwords.\n  -e: Excludes the parametter that should be where it is\n  -h: Prints this help message\n  -n: Add it after the 3rd parametter to make mrrobot.py include numbers in the generated passwords\n\n      Must be followed by the conjunction (python mrrobot.py tennis alex gatos -a and) \n\nScript by Svaazz\n"
 
 class Diccionario:
 	
@@ -27,8 +27,15 @@ class Diccionario:
 				self.palabra[x] = ''
 
 		if self.palabra[0] == self.palabra[1] or self.palabra[0] == self.palabra[2] or self.palabra[1] == self.palabra[2]:
-			print "\nYou cannot use the same word twice! \nType 'python mrrobot.py -h' for help\n"
-			exit()
+			i = 0
+			for x in range(3):
+				if self.palabra[x] == '':
+					i += 1
+			if x >= 2:
+				pass
+			else:
+				print "\nYou cannot use the same word twice! \nType 'python mrrobot.py -h' for help\n"
+				exit()
 
 		self.num = num
 		self.fecha = fecha
