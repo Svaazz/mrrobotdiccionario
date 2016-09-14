@@ -64,7 +64,9 @@ class Diccionario:
 		resultado = resultado.replace('O', '0')
 
 		return resultado
-
+	def guionbajo(self, clave):
+		resultado = "_" + clave
+		return resultado
 
 	def getArchivo(self):
 		return self.archivo
@@ -81,6 +83,12 @@ class Diccionario:
 				archivo.write(self.umayus(clave) + "\n")
 				archivo.write(self.pumayus(clave) + "\n")
 
+				archivo.write(self.guionbajo(clave) + "\n")
+				archivo.write(self.mayus(self.guionbajo(clave)) + "\n")
+				archivo.write(self.pmayus(self.guionbajo(clave)) + "\n")
+				archivo.write(self.umayus(self.guionbajo(clave)) + "\n")
+				archivo.write(self.pumayus(self.guionbajo(clave)) + "\n")
+
 
 				#Repite, con numeros sustituyendo a vocales
 				archivo.write(claveNumerica + "\n")
@@ -88,6 +96,12 @@ class Diccionario:
 				archivo.write(self.pmayus(claveNumerica) + "\n")
 				archivo.write(self.umayus(claveNumerica) + "\n")
 				archivo.write(self.pumayus(claveNumerica) + "\n")
+
+				archivo.write(self.guionbajo(self.guionbajo(claveNumerica)) + "\n")
+				archivo.write(self.mayus(self.guionbajo(claveNumerica)) + "\n")
+				archivo.write(self.pmayus(self.guionbajo(claveNumerica)) + "\n")
+				archivo.write(self.umayus(self.guionbajo(claveNumerica)) + "\n")
+				archivo.write(self.pumayus(self.guionbajo(claveNumerica)) + "\n")
 				
 				clave = clave + "A"
 				claveNumerica = claveNumerica + "A"
@@ -105,12 +119,25 @@ class Diccionario:
 							archivo.write(self.umayus(clave) + n + "\n")
 							archivo.write(self.pumayus(clave) + n + "\n")
 
+							archivo.write(clave + n + "\n")
+							archivo.write(self.mayus(self.guionbajo(clave)) + n + "\n")
+							archivo.write(self.pmayus(self.guionbajo(clave)) + n + "\n")
+							archivo.write(self.umayus(self.guionbajo(clave)) + n + "\n")
+							archivo.write(self.pumayus(self.guionbajo(clave)) + n + "\n")
+
 							#Repite, con numeros sustituyendo a vocales
 							archivo.write(self.vocales(clave) + n + "\n")
 							archivo.write(self.mayus(self.vocales(clave)) + n + "\n")
 							archivo.write(self.pmayus(self.vocales(clave)) + n + "\n")
 							archivo.write(self.umayus(self.vocales(clave)) + n + "\n")
 							archivo.write(self.pumayus(self.vocales(clave)) + n + "\n")
+
+							archivo.write(self.vocales(self.guionbajo(clave)) + n + "\n")
+							archivo.write(self.mayus(self.vocales(self.guionbajo(clave))) + n + "\n")
+							archivo.write(self.pmayus(self.vocales(self.guionbajo(clave))) + n + "\n")
+							archivo.write(self.umayus(self.vocales(self.guionbajo(clave))) + n + "\n")
+							archivo.write(self.pumayus(self.vocales(self.guionbajo(clave))) + n + "\n")
+
 							n = str(n) + "A"
 						n = n[:-1]
 					for j in range(2):
@@ -120,12 +147,25 @@ class Diccionario:
 						archivo.write(self.umayus(clave) + str(n) + "\n")
 						archivo.write(self.pumayus(clave) + str(n) + "\n")
 
+						archivo.write(self.guionbajo(clave) + str(n) + "\n") # De todas formas se escribe tambien el numero sin el cero delante para abarcar mas posibilidades
+						archivo.write(self.mayus(self.guionbajo(clave)) + str(n) + "\n")
+						archivo.write(self.pmayus(self.guionbajo(clave)) + str(n) + "\n")
+						archivo.write(self.umayus(self.guionbajo(clave)) + str(n) + "\n")
+						archivo.write(self.pumayus(self.guionbajo(clave)) + str(n) + "\n")
+
 						#Repite, con numeros sustituyendo a vocales
 						archivo.write(self.vocales(clave) + str(n) + "\n")
 						archivo.write(self.mayus(self.vocales(clave)) + str(n) + "\n")
 						archivo.write(self.pmayus(self.vocales(clave)) + str(n) + "\n")
 						archivo.write(self.umayus(self.vocales(clave)) + str(n) + "\n")
 						archivo.write(self.pumayus(self.vocales(clave)) + str(n) + "\n")
+
+						archivo.write(self.vocales(self.guionbajo(clave)) + str(n) + "\n")
+						archivo.write(self.mayus(self.vocales(self.guionbajo(clave))) + str(n) + "\n")
+						archivo.write(self.pmayus(self.vocales(self.guionbajo(clave))) + str(n) + "\n")
+						archivo.write(self.umayus(self.vocales(self.guionbajo(clave))) + str(n) + "\n")
+						archivo.write(self.pumayus(self.vocales(self.guionbajo(clave))) + str(n) + "\n")
+
 						n = str(n) + "A"
 					n = n[:-1]
 
