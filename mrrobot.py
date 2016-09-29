@@ -75,6 +75,7 @@ class Diccionario:
 	def escribe(self, clave):
 		archivo = self.archivo
 		if len(clave) > 0:
+			k = False
 			claveNumerica = self.vocales(clave)
 			for j in range(2):
 				archivo.write(clave + "\n")
@@ -103,15 +104,20 @@ class Diccionario:
 				archivo.write(self.umayus(self.guionbajo(claveNumerica)) + "\n")
 				archivo.write(self.pumayus(self.guionbajo(claveNumerica)) + "\n")
 				
-				clave = clave + "A"
-				claveNumerica = claveNumerica + "A"
-			clave = clave[:-1]
-			claveNumerica = claveNumerica[:-1]
+				if k != True:
+					clave = clave + "A"
+					claveNumerica = claveNumerica + "A"
+					k = True
+
+			clave = clave[0:-1]
+			claveNumerica = claveNumerica[0:-1]
+			k = False
 
 			if self.num == True:
 				for n in range(10000):
 					if n < 10: # Añade un 0 delante del numero mientras que sea de una sola cifra
 						n = '0' + str(n)
+						k = False
 						for j in range(2):
 							archivo.write(clave + n + "\n")
 							archivo.write(self.mayus(clave) + n + "\n")
@@ -138,8 +144,12 @@ class Diccionario:
 							archivo.write(self.umayus(self.vocales(self.guionbajo(clave))) + n + "\n")
 							archivo.write(self.pumayus(self.vocales(self.guionbajo(clave))) + n + "\n")
 
-							n = str(n) + "A"
+							if k != True:
+								n = str(n) + "A"
+								k = True
+
 						n = n[:-1]
+						k = False
 					for j in range(2):
 						archivo.write(clave + str(n) + "\n") # De todas formas se escribe tambien el numero sin el cero delante para abarcar mas posibilidades
 						archivo.write(self.mayus(clave) + str(n) + "\n")
@@ -166,8 +176,12 @@ class Diccionario:
 						archivo.write(self.umayus(self.vocales(self.guionbajo(clave))) + str(n) + "\n")
 						archivo.write(self.pumayus(self.vocales(self.guionbajo(clave))) + str(n) + "\n")
 
-						n = str(n) + "A"
+						if k != True:
+								n = str(n) + "A"
+								k = True
+
 					n = n[:-1]
+					k = False
 
 
 	def simple(self):
