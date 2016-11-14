@@ -10,7 +10,31 @@ import os
 comienzo = time.time() #Esto guarda la hora al comenzar la ejecución
 
 def ayuda():
-	print "\nHelp of mrrobot.py: \n\n mrrobot.py needs at least 3 parametters to work, \n if you want to exclude any of them, type '-e' instead \n\n For example: python mrrobot.py tennis -e gatos \n\n-Options-\n  -a: Used to add a conjunction in your language and use it in the passwords.\n  -e: Excludes the parametter that should be where it is\n  -h: Prints this help message\n  -n: Add it after the 3rd parametter to make mrrobot.py include numbers in the generated passwords\n\n      Must be followed by the conjunction (python mrrobot.py tennis alex gatos -a and) \n\nScript by Svaazz\n"
+	print "\nHelp of mrrobot.py: \n\n mrrobot.py needs at least 3 parametters to work, \n if you want to exclude any of them, type '-e' instead \n\n For example: python mrrobot.py tennis -e gatos \n\n-Options-\n  -a: Use it to add a conjunction in your language and use it in the passwords.\n      Must be followed by the conjunction (python mrrobot.py tennis alex gatos -a and)\n  -e: Excludes the parametter that should be where it is\n  -h: Prints this help message\n  -n: Add it after the 3rd parametter to make mrrobot.py include numbers in the generated passwords\n  -b: Searches for coincidences in a previously generated dictionary\n      that MUST be contained in the 'Generated' folder.\n      If the dictionary name contains spaces its name has to be quoted.\n      (Ex: python mrrobot.py -b tennis \"Dictionary-Mon Nov 14 20:10:25 2016\"). \n\nScript by Svaazz\n"
+def busca(secuencia, arch):
+	if secuencia == "" or arch == "":
+		return 'e'
+	try:
+		os.chdir("Generated") #Se va al directorio Generated
+		archivo = open(nmb, 'r')
+		lineas = archivo.readlines()
+		coincidencia = False
+		i = 0
+		for x in lineas:
+			i += 1
+			if secuencia in x and len(x) == len(secuencia)+1:
+				coincidencia = str(i)
+				break
+
+		if coincidencia != False:
+			return coincidencia
+		else:
+			return 'no'
+	except:
+		return 'e'
+
+
+
 
 class Diccionario:
 	
@@ -256,12 +280,26 @@ class Diccionario:
 
 numeros = False
 conjun = ''
-#Esto es lo que interpreta los parametros
+
+#Interprete de parametros
+if sys.argv[1] == '-b':
+		busqueda = sys.argv[2]
+		nmb = sys.argv[3]
+		rsult = busca(busqueda, nmb)
+		if rsult == 'e':
+			print "Check search parametters. Use 'python mrrobot.py -h' for help."
+		elif rsult == 'no':
+			print "No match found to '" + busqueda + "'."
+		else:
+			print "Match found! Line " + rsult
+		exit()
+
 if len(sys.argv) >= 5:
 	if sys.argv[4] == '-n':
 		numeros = True
 	elif sys.argv[4] == '-a':
 		conjun = sys.argv[5]
+	
 	if len(sys.argv) == 7:
 		if sys.argv[5] == '-a':
 			conjun = sys.argv[6]
@@ -272,6 +310,7 @@ if len(sys.argv) >= 5:
 elif len(sys.argv) == 2:
 	if sys.argv[1] == '-h':
 		ayuda()
+
 
 
 
