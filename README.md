@@ -33,6 +33,9 @@ py tennis -e gatos
 
 python mrrobot.py tennis alex gatos -n -a y
 py mrrobot.py tennis alex gatos -n -a y
+
+python mrrobot.py -b tennis "Dictionary-Mon Nov 14 20:10:25 2016"
+py mrrobot.py -b tennis "Dictionary-Mon Nov 14 20:10:25 2016"
 ```
 
 Necesita 3 palabras que se encargará de enlazar automágicamente de diversas formas para crear el diccionario. No puede haber dos palabras iguales, y su longitud tiene que ser superior a 2 caracteres.
@@ -44,6 +47,7 @@ Los atributos -n y -a son opcionales y sirven para añadir números a las combin
 -h: Imprime la ayuda
 -n: Incluye numeros en las combinaciones
 -a: Añade conjunciones a las claves generadas, tiene que estar seguido de una.
+-b: Busca una coincidencia dentro de un diccionario generado previamente. 
 ```
 
 Los diccionarios son archivos .txt y se guardan en la carpeta "Generated".
