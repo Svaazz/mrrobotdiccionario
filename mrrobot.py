@@ -282,7 +282,8 @@ numeros = False
 conjun = ''
 
 #Interprete de parametros
-if sys.argv[1] == '-b':
+if len(sys.argv) >= 3:
+	if sys.argv[1] == '-b':
 		busqueda = sys.argv[2]
 		nmb = sys.argv[3]
 		rsult = busca(busqueda, nmb)
